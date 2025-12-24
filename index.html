@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mustafa Adil - MSCS Student at Rutgers University | Ex-System Engineer at TCS">
+    <title>Mustafa Adil | System Engineer & MSCS Student</title>
+
+    <!-- Preconnect to Font Sources -->
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="site-wrapper">
+        <!-- Sidebar / Sticky Profile -->
+        <aside class="sidebar">
+            <div class="profile-container">
+                <div class="profile-image-wrapper">
+                    <img src="assets/images/profile.jpg" alt="Mustafa Adil" class="profile-img">
+                </div>
+                <h1 class="profile-name">Mustafa Adil</h1>
+                <p class="profile-title">MSCS Student<br>Rutgers University</p>
+                <p class="profile-subtitle">Ex-System Engineer @ TCS</p>
+                <p class="profile-email">
+                    <a href="mailto:mustafahavvaadil@gmail.com">mustafahavvaadil@gmail.com</a>
+                </p>
+
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/mustafaadil" aria-label="LinkedIn" target="_blank"><i
+                            class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" aria-label="GitHub" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    <a href="mailto:mustafahavvaadil@gmail.com" aria-label="Email" target="_blank"><i
+                            class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+
+            <!-- About Me Section -->
+            <section id="about" class="section">
+                <h2 class="section-title">About Me</h2>
+                <div class="section-content">
+                    <p>
+                        I am a Master's student in Computer Science at <a href="https://www.rutgers.edu"
+                            class="highlight-link">Rutgers University</a> (GPA 3.9), specializing in distributed systems
+                        and backend engineering.
+                    </p>
+                    <p>
+                        Previously, as a System Engineer at <strong style="color: var(--text-primary)">Tata Consultancy
+                            Services</strong>, I architected scalable microservices handling <strong>10k+ daily
+                            transactions</strong>. I have a passion for low-level optimization—improving API latency by
+                        <strong>20% (180ms → 144ms)</strong> and slashing SQL query times by <strong>25%</strong>
+                        through strategic indexing and profiling.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Experience Section -->
+            <section id="experience" class="section">
+                <h2 class="section-title">Experience</h2>
+                <div class="experience-list">
+
+                    <article class="experience-item">
+                        <div class="exp-header">
+                            <h3 class="exp-role">System Engineer</h3>
+                            <span class="exp-date">July 2022 - July 2024</span>
+                        </div>
+                        <div class="exp-company">Tata Consultancy Services</div>
+                        <ul class="exp-details">
+                            <li><strong>Microservices Architecture:</strong> Owned end-to-end design and deployment of
+                                Java microservices serving <strong>10,000+</strong> daily healthcare transactions,
+                                ensuring high availability.</li>
+                            <li><strong>Performance Optimization:</strong> Reduced API latency by <strong>20% (180ms →
+                                    144ms)</strong> through implementation of connection pooling and intelligent caching
+                                strategies.</li>
+                            <li><strong>Database Tuning:</strong> Diagnosed SQL bottlenecks and cut average query time
+                                by <strong>25% (200ms → 150ms)</strong> via query profiling, strategic indexing, and
+                                concurrency controls.</li>
+                            <li><strong>CI/CD & DevOps:</strong> Improved deployment lead time by <strong>15%</strong>
+                                by automating backend releases and telemetry monitoring for production environments.
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="experience-item">
+                        <div class="exp-header">
+                            <h3 class="exp-role">Software Developer Intern</h3>
+                            <span class="exp-date">Jan 2022 - May 2022</span>
+                        </div>
+                        <div class="exp-company">AllSoft Solutions</div>
+                        <ul class="exp-details">
+                            <li><strong>NLP Pipeline:</strong> Shipped a production-ready sentiment analysis pipeline
+                                (TF-IDF + SVM) processing <strong>10K+ tweets/day</strong>.</li>
+                            <li><strong>Optimization:</strong> Achieved <strong>25% accuracy improvement</strong> and
+                                <strong>15% faster training</strong> through optimized feature engineering and data
+                                preprocessing.
+                            </li>
+                            <li><strong>Real-time API:</strong> Built scalable Flask API handling real-time NLP
+                                workloads with secure content processing.</li>
+                        </ul>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="section">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="bento-grid">
+
+                    <!-- Project 1: Load Balancer -->
+                    <article class="bento-card project-main">
+                        <div class="card-content">
+                            <div class="card-icon"><i class="fa-solid fa-server"></i></div>
+                            <h3 class="card-title">HTTP Reverse Proxy Load Balancer</h3>
+                            <p class="card-desc">Engineered a reverse proxy with Round-Robin, Adaptive SMA, and EWMA
+                                routing algorithms. Reduced median response time by <strong>20%</strong> in stress
+                                tests.</p>
+                            <div class="card-tags">
+                                <span>C++</span><span>Distributed Systems</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 2: GenAI -->
+                    <article class="bento-card project-secondary">
+                        <div class="card-content">
+                            <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
+                            <h3 class="card-title">GenAI-Powered ADE Detection</h3>
+                            <p class="card-desc">BioBERT NLP pipeline for adverse drug events. <strong>15% accuracy
+                                    boost</strong> via hyperparameter tuning.</p>
+                            <div class="card-tags">
+                                <span>Python</span><span>ML/NLP</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 3: DApp -->
+                    <article class="bento-card project-tertiary">
+                        <div class="card-content">
+                            <div class="card-icon"><i class="fa-brands fa-ethereum"></i></div>
+                            <h3 class="card-title">Ethereum DApp</h3>
+                            <p class="card-desc">Smart contracts reducing gas costs by 15%.</p>
+                        </div>
+                    </article>
+
+                    <!-- Project 4: Blockchain -->
+                    <article class="bento-card project-quaternary">
+                        <div class="card-content">
+                            <div class="card-icon"><i class="fa-brands fa-bitcoin"></i></div>
+                            <h3 class="card-title">Standalone PoW Blockchain</h3>
+                            <p class="card-desc">Custom consensus algorithm improving validation by 30%.</p>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- Publications & Patents Section -->
+            <section id="publications" class="section">
+                <h2 class="section-title">Patents & Research</h2>
+                <div class="bento-grid">
+
+                    <!-- Patent (Hero High-Vis) -->
+                    <article class="bento-card patent-feature">
+                        <div class="card-content">
+                            <div class="patent-badge-hero"><i class="fa-solid fa-certificate"></i> Patent Published
+                            </div>
+                            <h3 class="card-title">Adaptive Multiplex Electrode Intelligent Sleep Monitoring
+                                System</h3>
+                            <p class="card-desc">Application No: 202321047142</p>
+                            <p class="card-desc">Contributed to a scalable pipeline for real-time
+                                biomedical data collection and processing.</p>
+                        </div>
+                    </article>
+
+                    <!-- Publications Group -->
+                    <article class="bento-card research-group">
+                        <div class="card-content">
+                            <h3 class="group-title">Research Publications</h3>
+                            <div class="research-item">
+                                <i class="fa-solid fa-book-open"></i>
+                                <div>
+                                    <h4 class="res-title">Optimization Techniques for Sleep Analysis</h4>
+                                    <span class="res-venue">Springer Nature Chapter</span>
+                                </div>
+                            </div>
+                            <div class="research-item">
+                                <i class="fa-solid fa-file-contract"></i>
+                                <div>
+                                    <h4 class="res-title">AI Empowers Polysomnography</h4>
+                                    <span class="res-venue">NOVYI MIR Journal (Lead Author)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- Education Section -->
+            <section id="education" class="section">
+                <h2 class="section-title">Education</h2>
+                <div class="bento-grid">
+
+                    <!-- Education (Compact) -->
+                    <article class="bento-card edu-card">
+                        <div class="card-content">
+                            <h3 class="group-title">Education</h3>
+                            <div class="edu-row">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                                <div>
+                                    <strong>Rutgers University</strong>
+                                    <div class="edu-sub">MSCS (GPA 3.9)</div>
+                                </div>
+                            </div>
+                            <div class="edu-row">
+                                <i class="fa-solid fa-university"></i>
+                                <div>
+                                    <strong>SVVV</strong>
+                                    <div class="edu-sub">B.Tech (GPA 3.7)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <footer class="site-footer">
+                <p>&copy; 2025 Mustafa Adil. Engineered for Impact.</p>
+            </footer>
+
+        </main>
+    </div>
+
+</body>
+
+</html>
