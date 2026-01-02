@@ -1,24 +1,22 @@
 /* CSS Reset & Variables */
 :root {
-    /* Color Palette - Premium & Minimal */
-    --bg-color: #ffffff;
-    --text-color: #1d1d1f;
-    /* Apple-style dark grey */
-    --text-muted: #86868b;
-    --primary-blue: #0071e3;
-    /* Premium action blue */
-    --hover-blue: #0077ed;
-    --border-color: #d2d2d7;
-    --bg-hover: #f5f5f7;
+    /* Modern Theme Palette (Shraddha Inspired) */
+    --bg-body: #f9f9f9;
+    --text-main: #111111;
+    --text-muted: #666666;
+    --accent-color: #FF6B00;
+    /* Subtle orange accent from reference */
+    --card-bg: #ffffff;
+    --card-grey: #EAEAEA;
+    /* For Project Cards */
 
-    /* Spacing System */
-    --spacing-unit: 8px;
-    --sidebar-width: 280px;
-    --max-width: 1100px;
+    /* Spacing */
+    --nav-height: 80px;
+    --max-width: 1200px;
 
     /* Typography */
-    --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    --font-mono: 'SF Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
+    --font-main: 'Inter', -apple-system, sans-serif;
+    --font-size-base: 18px;
 }
 
 * {
@@ -29,123 +27,538 @@
 
 body {
     font-family: var(--font-main);
-    color: var(--text-color);
-    background-color: var(--bg-color);
-    line-height: 1.6;
+    color: var(--text-main);
+    background-color: var(--bg-body);
+    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-size: 16px;
-    letter-spacing: -0.01em;
+    font-size: var(--font-size-base);
 }
 
 a {
     text-decoration: none;
-    color: var(--primary-blue);
+    color: inherit;
     transition: all 0.2s ease;
 }
 
-a:hover {
-    color: var(--hover-blue);
-    text-decoration: underline;
-}
-
-/* Layout Wrapper */
+/* Layout Wrapper - Single Column Centered */
 .site-wrapper {
-    display: flex;
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 40px 20px;
-    gap: 60px;
-    align-items: flex-start;
-    /* Important for sticky sidebar */
-}
-
-/* Sidebar Styling */
-.sidebar {
-    width: 28%;
-    flex-shrink: 0;
-    position: sticky;
-    top: 40px;
-    text-align: center;
-    padding-right: 20px;
-}
-
-.profile-container {
+    padding: 0 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
+    overflow-x: hidden;
 }
 
-.profile-image-wrapper {
-    width: 180px;
-    height: 180px;
+/* Utils */
+.section {
+    width: 100%;
+    margin-bottom: 120px;
+    /* Airy spacing */
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Navigation */
+.floating-nav {
+    position: fixed;
+    top: 20px;
+    background: rgba(220, 220, 220, 0.5);
+    /* Semi-transparent grey */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 10px 30px;
+    border-radius: 50px;
+    display: flex;
+    gap: 30px;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.floating-nav a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-muted);
+    position: relative;
+}
+
+.floating-nav a.active,
+.floating-nav a:hover {
+    color: var(--text-main);
+}
+
+/* Sections & Headings */
+.section-heading {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+}
+
+.dot {
+    color: var(--accent-color);
+}
+
+.blink {
+    animation: blink 1s infinite;
+    color: var(--accent-color);
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Hero Section */
+.hero-section {
+    margin-top: 160px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-intro {
+    font-size: 80px;
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -3px;
+    color: #333;
+    margin-bottom: 24px;
+}
+
+.hero-name {
+    color: var(--text-main);
+}
+
+.hero-subtext {
+    font-size: 20px;
+    color: var(--text-muted);
+    max-width: 600px;
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+.hero-image-wrapper {
+    width: 280px;
+    height: 280px;
     border-radius: 50%;
     overflow: hidden;
-    margin-bottom: 10px;
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.15);
-    /* Soft premium shadow */
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 4px solid white;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
 }
 
-.profile-img {
+.hero-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.profile-image-wrapper:hover .profile-img {
-    transform: scale(1.05);
-    /* Subtle zoom effect */
-}
-
-.profile-name {
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 1.2;
-    color: var(--text-color);
-    letter-spacing: -0.02em;
-}
-
-.profile-title {
-    font-size: 16px;
-    color: var(--text-muted);
-    font-weight: 500;
-}
-
-.profile-email a {
-    font-size: 14px;
-    color: var(--text-muted);
-    line-height: 1.4;
-    display: block;
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-.profile-email a:hover {
-    color: var(--primary-blue);
 }
 
 /* Social Icons */
-.social-links {
-    margin-top: 10px;
+.hero-socials {
     display: flex;
-    gap: 16px;
-    justify-content: center;
+    gap: 20px;
 }
 
-.social-links a {
-    color: var(--text-color);
-    font-size: 20px;
+.hero-socials a {
+    font-size: 24px;
+    color: var(--text-main);
     opacity: 0.7;
-    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.2s ease;
 }
 
-.social-links a:hover {
+.hero-socials a:hover {
     opacity: 1;
-    color: var(--primary-blue);
+    transform: translateY(-3px);
+    color: var(--accent-color);
+}
+
+/* Grids */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* Project Slider Override */
+.projects-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 24px;
+    padding-bottom: 20px;
+    /* Space for scrollbar */
+    -webkit-overflow-scrolling: touch;
+    /* Hide scrollbar for standard browsers but keep functionality */
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-color) transparent;
+}
+
+/* Custom Scrollbar for Webkit */
+.projects-slider::-webkit-scrollbar {
+    height: 8px;
+}
+
+.projects-slider::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.projects-slider::-webkit-scrollbar-thumb {
+    background-color: #ddd;
+    border-radius: 20px;
+}
+
+.projects-slider .project-card-modern {
+    /* Exact calculation to show 3 cards at a time: (100% width - 2 gaps of 24px) / 3 */
+    flex: 0 0 calc((100% - 48px) / 3);
+    scroll-snap-align: start;
+    min-width: 0;
+    /* Override any defaults */
+}
+
+/* Experience */
+.experience-container {
+    display: grid;
+    gap: 24px;
+}
+
+.exp-card {
+    background: var(--card-bg);
+    padding: 32px;
+    border-radius: 20px;
+    border: 1px solid #eee;
+    transition: transform 0.2s;
+}
+
+.exp-card:hover {
     transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 12px;
+}
+
+.exp-header h3 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.exp-company {
+    font-weight: 600;
+    color: var(--accent-color);
+    margin-bottom: 16px;
+    font-size: 16px;
+}
+
+.exp-date {
+    font-size: 14px;
+    opacity: 0.7;
+    font-family: monospace;
+}
+
+.exp-details-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.exp-details-list li {
+    font-size: 15px;
+    color: #444;
+    margin-bottom: 8px;
+    line-height: 1.6;
+    position: relative;
+    padding-left: 18px;
+}
+
+.exp-details-list li::before {
+    content: "•";
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Education Cards */
+.edu-card {
+    height: 380px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease;
+    background-size: cover;
+    background-position: center;
+}
+
+.edu-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Uses assets now */
+.card-rutgers {
+    background-image: url('../assets/images/rutgers.jpg');
+}
+
+.card-svvv {
+    background-image: url('../assets/images/svvv.jpg');
+}
+
+.edu-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 24px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.6), transparent);
+    color: white;
+}
+
+.edu-overlay h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.edu-overlay p {
+    font-size: 16px;
+    opacity: 0.95;
+    font-weight: 500;
+}
+
+/* Projects Cards (Modern Grey) */
+.project-card-modern {
+    background: var(--card-grey);
+    /* Light grey #EAEAEA */
+    border-radius: 24px;
+    padding: 30px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.project-card-modern:hover {
+    background: #e0e0e0;
+}
+
+.proj-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.proj-top h3 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+    max-width: 80%;
+}
+
+.arrow-icon {
+    font-size: 18px;
+    color: var(--accent-color);
+    transform: rotate(45deg);
+    /* Point up-right */
+}
+
+/* No rotate for non-arrow icons */
+.arrow-icon.fa-certificate,
+.arrow-icon.fa-book-open,
+.arrow-icon.fa-file-contract {
+    transform: none;
+}
+
+
+.proj-desc {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+.proj-tags {
+    margin-top: auto;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    z-index: 2;
+}
+
+.proj-tags span {
+    background: rgba(0, 0, 0, 0.05);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #555;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.proj-number {
+    position: absolute;
+    bottom: 0px;
+    right: 15px;
+    font-size: 140px;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.6);
+    /* Subtle overlay effect */
+    line-height: 1;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Skills Cloud */
+.skills-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Center aligned as per Modern Theme */
+    gap: 12px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.skill-pill {
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: transform 0.2s;
+    cursor: default;
+}
+
+.skill-pill:hover {
+    transform: scale(1.05);
+}
+
+.pill-dark {
+    background: #333;
+    color: white;
+}
+
+.pill-orange {
+    background: #FDE8D8;
+    color: #D66D28;
+}
+
+.pill-light {
+    background: #E9E9EB;
+    color: #333;
+}
+
+.pill-blue {
+    background: #E0EFFE;
+    color: #3B82F6;
+}
+
+/* Responsive */
+@media screen and (max-width: 900px) {
+    .site-wrapper {
+        padding: 0 20px;
+    }
+
+    .floating-nav {
+        bottom: 20px;
+        top: auto;
+        /* Bottom nav on mobile */
+        width: 90%;
+        justify-content: space-around;
+        padding: 10px;
+    }
+
+    .hero-section {
+        flex-direction: column-reverse;
+        text-align: center;
+        margin-top: 100px;
+    }
+
+    .hero-intro {
+        font-size: 48px;
+    }
+
+    .hero-subtext {
+        margin: 0 auto 32px auto;
+    }
+
+    .grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-slider {
+        padding-bottom: 20px;
+    }
+
+    /* On mobile, show 1 card with a peek at the next (85% width) */
+    .projects-slider .project-card-modern {
+        flex: 0 0 85%;
+        min-width: 280px;
+    }
+
+    .hero-image-wrapper {
+        width: 220px;
+        height: 220px;
+    }
+
+    .hero-socials {
+        justify-content: center;
+    }
+
+    .edu-card,
+    .project-card-modern {
+        height: auto;
+        min-height: 300px;
+    }
+}
+
+/* Typing Cursor Animation */
+.typing-cursor {
+    display: inline-block;
+    width: 2px;
+    background-color: var(--accent-color);
+    animation: blink 1s infinite;
+    margin-left: 2px;
+    vertical-align: bottom;
+    /* Aligns visually with text baseline */
+    color: var(--accent-color);
+    /* Fallback if using pipe char */
+    font-weight: bold;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }
 
 /* Main Content Area */
@@ -309,65 +722,6 @@ a:hover {
     color: var(--text-color);
     margin-top: 8px;
 }
-
-/* Bento Grid Layout */
-.bento-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto auto auto;
-    gap: 24px;
-    margin-top: 16px;
-}
-
-.bento-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-subtle);
-    border-radius: 24px;
-    /* More rounded for modern feel */
-    padding: 24px;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.bento-card:hover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-    /* Deep shadow */
-    z-index: 2;
-}
-
-/* Grid Spanning Logic for Bento Feel */
-.project-main,
-.project-secondary,
-.project-tertiary,
-.project-quaternary,
-.patent-feature,
-.research-group {
-    grid-column: span 2;
-    grid-row: span 1;
-}
-
-/* Remove custom backgrounds to ensure consistency */
-.project-main {
-    background: var(--bg-card);
-}
-
-.patent-feature {
-    background: var(--bg-card);
-    color: var(--text-color);
-    border: 1px solid var(--border-subtle);
-    min-height: 240px;
-    /* Ensure uniform height for all cards */
-}
-
-.edu-card {
-    grid-column: span 4;
-}
-
 
 /* Card Content Styling */
 .card-icon {
